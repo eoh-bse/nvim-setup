@@ -7,7 +7,7 @@ function keymap(mode, lhs, rhs, opts)
 end
 
 -- close current buffer (file)
-keymap('n', '<A-w>', ':bd<CR>>', nil)
+keymap('n', '<A-w>', ':bd<CR>', nil)
 
 keymap('n', '<C-h>', ':BufferLineCyclePrev<CR>', nil)
 keymap('n', '<C-l>', ':BufferLineCycleNext<CR>', nil)
