@@ -9,11 +9,16 @@ end
 -- close current buffer (file)
 keymap('n', '<A-w>', ':bd<CR>', nil)
 
+-- bufferline shortcuts
 keymap('n', '<C-h>', ':BufferLineCyclePrev<CR>', nil)
 keymap('n', '<C-l>', ':BufferLineCycleNext<CR>', nil)
 keymap('n', '<C-j>', ':BufferLineMovePrev<CR>', nil)
 keymap('n', '<C-k>', ':BufferLineMoveNext<CR>', nil)
+
+-- nvim-tree shortcuts
 keymap('n', '<C-b>', ':NvimTreeToggle<CR>', nil)
+
+-- fzf shortcuts
 keymap('n', '<C-p>', ':GFiles<CR>', nil)
 keymap('n', '<C-f>', ':Files<CR>', nil)
 keymap('n', '<A-f>', ':Rg<CR>\'', nil)
