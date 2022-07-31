@@ -25,7 +25,6 @@ lua require('nvim-lsp-config')
 lua require('nvimcomment-config')
 lua require('dapui-config')
 lua require('godap-config')
-lua require('nodedap-config')
 lua require('git-diffview-config')
 lua require('keymaps')
 
