@@ -17,6 +17,7 @@ keymap('n', '<C-k>', ':BufferLineMoveNext<CR>', nil)
 
 -- nvim-tree shortcuts
 keymap('n', '<C-b>', ':NvimTreeToggle<CR>', nil)
+keymap('n', 'tr', ':NvimTreeRefresh<CR>', nil)
 
 -- fzf shortcuts
 keymap('n', '<C-p>', ':GFiles<CR>', nil)
@@ -42,3 +43,6 @@ keymap('n', '<F11>', ":lua require'dap'.step_into()<CR>", nil)
 keymap('n', '<F12>', ":lua require'dap'.clear_breakpoints()<CR>", nil)
 keymap('n', 'dc', ":lua require'dapui'.close()<CR>", nil)
 
+-- git diffview
+keymap('n', 'go', ':DiffviewOpen<CR>', nil);
+keymap('n', 'gc', ':DiffviewClose<CR>', nil);
