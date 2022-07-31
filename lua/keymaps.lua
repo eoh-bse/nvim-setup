@@ -44,5 +44,5 @@ keymap('n', '<F12>', ":lua require'dap'.clear_breakpoints()<CR>", nil)
 keymap('n', 'dc', ":lua require'dapui'.close()<CR>", nil)
 
 -- git diffview
-keymap('n', 'go', ':DiffviewOpen<CR>', nil);
-keymap('n', 'gc', ':DiffviewClose<CR>', nil);
+keymap('n', 'gto', ':DiffviewOpen<CR>', nil);
+keymap('n', 'gtc', ':DiffviewClose<CR>', nil);
