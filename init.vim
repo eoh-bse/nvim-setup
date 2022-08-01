@@ -1,13 +1,25 @@
+"Vim Settings
+filetype on
+filetype indent on
+filetype plugin on
+
+set encoding=UTF-8
+
+syntax on
+
 set number
 set shiftwidth=4
 set tabstop=4
 set autoindent
 set smartindent
-set smarttab
+set shiftround
+set colorcolumn=125
 set splitright
+set smartcase
+set linebreak
+set confirm
 set autoread
 au FocusGained * :checktime
-syntax on
 
 "removes trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
