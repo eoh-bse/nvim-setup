@@ -1,4 +1,4 @@
-require('nvim-treesitter').setup({
+require('nvim-treesitter.configs').setup({
 	ensure_installed = {
 		'go',
 		'gomod',
@@ -17,10 +17,12 @@ require('nvim-treesitter').setup({
 		'dockerfile',
 		'lua',
 		'regex',
-		'proto'
+		'proto',
+		"yaml",
 	},
 	auto_install = true,
 	highlight = {
-		enable = true
+		enable = true,
+		additional_vim_regex_highlighting = false,
 	}
 })
