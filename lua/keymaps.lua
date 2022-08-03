@@ -9,6 +9,9 @@ end
 -- close current buffer (file)
 keymap('n', '<A-w>', ':bd<CR>', nil)
 
+-- split resize
+keymap('n', '<A-k>', ':vertical resize +5<CR>', nil) -- increase vertical split size
+keymap('n', '<A-j>', ':vertical resize -5<CR>', nil) -- decrease vertical split size
 -- bufferline shortcuts
 keymap('n', '<C-h>', ':BufferLineCyclePrev<CR>', nil)
 keymap('n', '<C-l>', ':BufferLineCycleNext<CR>', nil)
