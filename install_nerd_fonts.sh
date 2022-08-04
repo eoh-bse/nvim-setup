@@ -12,3 +12,5 @@ unzip ~/Downloads/$fontname.zip -d ~/Downloads/$fontname
 sudo mv ~/Downloads/$fontname /usr/share/fonts/
 
 rm ~/Downloads/$fontname.zip
+
+fc-cache -f -v
