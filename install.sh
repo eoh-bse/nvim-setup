@@ -27,3 +27,5 @@ sudo npm i -g typescript typescript-language-server vscode-langservers-extracted
 
 go install golang.org/x/tools/gopls@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
+
+echo "If you want things to look even better, install Jetbrains Mono font: https://www.jetbrains.com/lp/mono/#how-to-install"
