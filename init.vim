@@ -25,9 +25,9 @@ au FocusGained * :checktime
 autocmd BufWritePre * %s/\s\+$//e
 
 lua require('plugins')
-lua require('material-config')
-lua require('lualine-config')
 lua require('bufferline-config')
+lua require('onedarkpro-config')
+lua require('lualine-config')
 lua require('nvimtree-config')
 lua require('toggleterm-config')
 lua require('nvimtreesitter-config')

@@ -2,7 +2,7 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
 	use 'kyazdani42/nvim-web-devicons'
-	use 'marko-cerovac/material.nvim'
+	use "olimorris/onedarkpro.nvim"
 	use 'nvim-lualine/lualine.nvim'
 	use 'kyazdani42/nvim-tree.lua'
 
