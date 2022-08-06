@@ -1,4 +1,4 @@
-vim.cmd([[set completeopt=menu,menuone,noselect]])
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 local cmp = require('cmp')
 
@@ -39,7 +39,10 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'treesitter' },
+    { name = 'buffer' },
     { name = 'vsnip' }, -- For vsnip users.
+    { name = 'path' },
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
