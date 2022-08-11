@@ -15,6 +15,7 @@ set smartindent
 set shiftround
 set colorcolumn=125
 set splitright
+set ignorecase
 set smartcase
 set linebreak
 set confirm
