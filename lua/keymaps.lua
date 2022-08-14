@@ -9,9 +9,14 @@ end
 -- close current buffer (file)
 keymap('n', '<A-w>', ':bd<CR>', nil)
 
--- split resize
+-- exit to normal mode in terminal mode
+keymap('t', '<Esc>', '<C-\\><C-n>', nil)
+
+-- split
+keymap('n', '<A-s>', ':vsplit<CR>', nil) -- decrease vertical split size
 keymap('n', '<A-k>', ':vertical resize +5<CR>', nil) -- increase vertical split size
 keymap('n', '<A-j>', ':vertical resize -5<CR>', nil) -- decrease vertical split size
+
 -- bufferline shortcuts
 keymap('n', '<C-h>', ':BufferLineCyclePrev<CR>', nil)
 keymap('n', '<C-l>', ':BufferLineCycleNext<CR>', nil)
@@ -22,10 +27,11 @@ keymap('n', '<C-k>', ':BufferLineMoveNext<CR>', nil)
 keymap('n', '<C-b>', ':NvimTreeToggle<CR>', nil)
 keymap('n', 'tr', ':NvimTreeRefresh<CR>', nil)
 
--- fzf shortcuts
-keymap('n', '<C-p>', ':GFiles<CR>', nil)
-keymap('n', '<C-f>', ':Files<CR>', nil)
-keymap('n', '<A-f>', ':Rg<CR>\'', nil)
+-- telescope shortcuts
+keymap('n', '<C-p>', ":lua require('telescope.builtin').git_files({ show_untracked = true })<CR>", nil)
+keymap('n', '<C-f>', ":lua require('telescope.builtin').find_files()<CR>", nil)
+keymap('n', '<A-f>', ":lua require('telescope.builtin').live_grep({ show_untracked = true })<CR>", nil)
+keymap('n', 'Fr', ":lua require('telescope.builtin').lsp_references()<CR>", nil)
 
 -- lsp shortcuts
 local lspOptions = { buffer = bufnr, noremap = true, silent = true }

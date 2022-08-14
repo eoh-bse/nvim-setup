@@ -10,9 +10,6 @@ return require('packer').startup(function()
 
 	use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
 
-	use { 'junegunn/fzf', run = ':call fzf#install()' }
-	use 'junegunn/fzf.vim'
-
 	use 'mg979/vim-visual-multi'
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -29,6 +26,12 @@ return require('packer').startup(function()
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
+
+	-- telescope
+	use {
+		'nvim-telescope/telescope.nvim', branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
 
 	-- debugger
 	use 'mfussenegger/nvim-dap'

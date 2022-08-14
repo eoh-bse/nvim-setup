@@ -1,5 +1,5 @@
 require('toggleterm').setup({
-	size = 22,
+	size = 30,
 	open_mapping = [[<C-\>]],
-	hide_numbers = true
+	hide_numbers = true,
 })
