@@ -6,9 +6,6 @@ function keymap(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- close current buffer (file)
-keymap('n', '<A-w>', ':bd<CR>', nil)
-
 -- exit to normal mode in terminal mode
 keymap('t', '<Esc>', '<C-\\><C-n>', nil)
 
@@ -16,6 +13,7 @@ keymap('t', '<Esc>', '<C-\\><C-n>', nil)
 keymap('n', '<A-s>', ':vsplit<CR>', nil) -- decrease vertical split size
 keymap('n', '<A-k>', ':vertical resize +5<CR>', nil) -- increase vertical split size
 keymap('n', '<A-j>', ':vertical resize -5<CR>', nil) -- decrease vertical split size
+keymap('n', '<A-w>', ':bd<CR>', nil)
 
 -- bufferline shortcuts
 keymap('n', '<C-h>', ':BufferLineCyclePrev<CR>', nil)
