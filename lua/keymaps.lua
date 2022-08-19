@@ -31,13 +31,6 @@ keymap('n', '<C-f>', ":lua require('telescope.builtin').find_files()<CR>", nil)
 keymap('n', '<A-f>', ":lua require('telescope.builtin').live_grep({ show_untracked = true })<CR>", nil)
 keymap('n', 'Fr', ":lua require('telescope.builtin').lsp_references()<CR>", nil)
 
--- lsp shortcuts
-local lspOptions = { buffer = bufnr, noremap = true, silent = true }
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, options)
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, options)
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, options)
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, options)
-
 -- dap shortcuts
 local dap = require('dap')
 keymap('n', '<F5>', ":lua require'dap'.continue()<CR>", nil)
