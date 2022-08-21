@@ -80,7 +80,7 @@ end
 
 vim.cmd [[
 	autocmd BufWritePre *.go :lua vim.lsp.buf.formatting()
-	autocmd BufWrite *.go lua goOrganizeImports(1000)
+	autocmd BufWrite *.go :lua goOrganizeImports(1000)
 ]]
 
 lspconfig.tsserver.setup({
