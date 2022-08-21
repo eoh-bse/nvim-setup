@@ -1,8 +1,9 @@
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
 local cmp = require('cmp')
 
 cmp.setup({
+  completion = {
+	completeopt = 'menu,menuone,noinsert',
+  },
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
