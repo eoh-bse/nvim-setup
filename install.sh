@@ -6,10 +6,14 @@ echo "Installing Packer..."
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-echo 'Installing prerequisites for fzf'
+echo 'Installing prerequisites for fuzzy searching...'
 sudo dnf install the_silver_searcher ripgrep
 
-echo 'Installing Hack Nerd Font (for nvim-tree icons)'
+echo 'Installing lazygit...'
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
+
+echo 'Installing Hack Nerd Font (for nvim-tree icons)...'
 bash install_nerd_fonts.sh
 
 if [! go version]; then

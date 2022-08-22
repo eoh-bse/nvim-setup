@@ -7,7 +7,7 @@ function keymap(mode, lhs, rhs, opts)
 end
 
 -- exit to normal mode in terminal mode
-keymap('t', '<Esc>', '<C-\\><C-n>', nil)
+keymap('t', '<F2>', '<C-\\><C-n>', nil)
 
 -- split
 keymap('n', '<A-s>', ':vsplit<CR>', nil) -- decrease vertical split size
@@ -42,7 +42,3 @@ keymap('n', '<F10>', ":lua require'dap'.step_over()<CR>", nil)
 keymap('n', '<F11>', ":lua require'dap'.step_into()<CR>", nil)
 keymap('n', '<F12>', ":lua require'dap'.clear_breakpoints()<CR>", nil)
 keymap('n', 'dc', ":lua require'dapui'.close()<CR>", nil)
-
--- git diffview
-keymap('n', 'gto', ':DiffviewOpen<CR>', nil);
-keymap('n', 'gtc', ':DiffviewClose<CR>', nil);
