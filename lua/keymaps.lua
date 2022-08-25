@@ -1,4 +1,4 @@
-function keymap(mode, lhs, rhs, opts)
+local function keymap(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
         options = vim.tbl_extend('force', options, opts)
@@ -32,7 +32,6 @@ keymap('n', '<A-f>', ":lua require('telescope.builtin').live_grep({ show_untrack
 keymap('n', 'Fr', ":lua require('telescope.builtin').lsp_references()<CR>", nil)
 
 -- dap shortcuts
-local dap = require('dap')
 keymap('n', '<F5>', ":lua require'dap'.continue()<CR>", nil)
 keymap('n', '<F6>', ":lua require'dap'.terminate()<CR>", nil)
 keymap('n', '<F7>', ":lua require'dap'.toggle_breakpoint()<CR>", nil)

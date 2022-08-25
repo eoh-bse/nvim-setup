@@ -28,6 +28,7 @@ fi
 
 echo 'Installing language servers...'
 sudo npm i -g typescript typescript-language-server vscode-langservers-extracted bash-language-server
+echo 'For lua, install the language server at https://github.com/sumneko/lua-language-server/releases'
 
 go install golang.org/x/tools/gopls@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest

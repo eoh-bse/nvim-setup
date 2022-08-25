@@ -12,8 +12,8 @@ local lazygit = Terminal:new({
 	direction = 'float',
 })
 
-function lazygit_toggle()
+function Lazygit_toggle()
 	lazygit:toggle()
 end
 
-vim.keymap.set('n', '<A-g>', ':lua lazygit_toggle()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-g>', ':lua Lazygit_toggle()<CR>', { noremap = true, silent = true })
