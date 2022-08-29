@@ -10,6 +10,7 @@ syntax on
 set number
 set shiftwidth=4
 set tabstop=4
+set expandtab
 set autoindent
 set smartindent
 set shiftround
@@ -38,5 +39,6 @@ lua require('nvimcomment-config')
 lua require('telescope-config')
 lua require('dapui-config')
 lua require('godap-config')
+lua require('nvim-scala-config')
 lua require('keymaps')
 

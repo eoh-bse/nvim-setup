@@ -41,3 +41,6 @@ keymap('n', '<F10>', ":lua require'dap'.step_over()<CR>", nil)
 keymap('n', '<F11>', ":lua require'dap'.step_into()<CR>", nil)
 keymap('n', '<F12>', ":lua require'dap'.clear_breakpoints()<CR>", nil)
 keymap('n', 'dc', ":lua require'dapui'.close()<CR>", nil)
+
+-- scala metals shortcuts
+keymap('n', '<F3>', ":lua require'telescope'.extensions.metals.commands()<CR>", nil)
