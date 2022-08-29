@@ -35,3 +35,6 @@ go install honnef.co/go/tools/cmd/staticcheck@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 
 echo "If you want things to look even better, install Jetbrains Mono font: https://www.jetbrains.com/lp/mono/#how-to-install"
+
+echo "Make sure to follow nvim-metals installation instruction at https://github.com/scalameta/nvim-metals"
+echo "Make sure to have JAVA_HOME environment variable set in your terminal profile (like .bashrc) as mentioned in https://scalameta.org/metals/docs/editors/vim"
