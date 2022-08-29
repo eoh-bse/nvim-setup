@@ -44,3 +44,6 @@ keymap('n', 'dc', ":lua require'dapui'.close()<CR>", nil)
 
 -- dap-go shortcuts
 keymap('n', 'gt', ":lua require'dap-go'.debug_test()<CR>", nil)
+
+-- scala metals shortcuts
+keymap('n', '<F3>', ":lua require'telescope'.extensions.metals.commands()<CR>", nil)

@@ -106,6 +106,7 @@ end
 vim.cmd [[
 	autocmd BufWritePre *.go :lua vim.lsp.buf.formatting()
 	autocmd BufWritePre *.go :lua GoOrganizeImports(1000)
+	autocmd BufWritePre *.scala :lua vim.lsp.buf.formatting()
 ]]
 
 lspconfig.tsserver.setup({
@@ -116,3 +117,5 @@ lspconfig.eslint.setup({
 	capabilities = capabilities,
 	on_attach = on_attach
 })
+lspconfig.yamlls.setup({})
+lspconfig.terraformls.setup({})
