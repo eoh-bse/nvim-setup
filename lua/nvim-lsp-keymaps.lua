@@ -6,8 +6,9 @@ local on_attach = function(client, bufnr)
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	local bufopts = { noremap=true, silent=true, buffer=bufnr }
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set('n', 'gl', vim.lsp.codelens.run, bufopts)
+	vim.keymap.set('n', 'glr', vim.lsp.codelens.refresh, bufopts)
 	vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
