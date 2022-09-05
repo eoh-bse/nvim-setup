@@ -6,6 +6,8 @@ require('nvim-treesitter.configs').setup({
 		'java',
 		'scala',
 		'c_sharp',
+		'c',
+		'cpp',
 		'html',
 		'css',
 		'scss',
