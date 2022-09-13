@@ -118,4 +118,9 @@ lspconfig.eslint.setup({
 	on_attach = on_attach
 })
 lspconfig.yamlls.setup({})
-lspconfig.terraformls.setup({})
+lspconfig.terraformls.setup({
+    filetypes = {
+        "terraform",
+        "tf",
+    }
+})
