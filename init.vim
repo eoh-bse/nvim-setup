@@ -23,7 +23,11 @@ set confirm
 set autoread
 au FocusGained * :checktime
 
-"removes trailing whitespaces on save
+set wrap
+set linebreak
+set showbreak=>\ \ \
+
+"remove trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
 lua require('plugins')
@@ -41,4 +45,3 @@ lua require('dapui-config')
 lua require('godap-config')
 lua require('nvim-scala-config')
 lua require('keymaps')
-

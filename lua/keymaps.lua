@@ -22,7 +22,7 @@ keymap('n', '<C-j>', ':BufferLineMovePrev<CR>', nil)
 keymap('n', '<C-k>', ':BufferLineMoveNext<CR>', nil)
 
 -- nvim-tree shortcuts
-keymap('n', '<C-b>', ':NvimTreeToggle<CR>', nil)
+keymap('n', 'tg', ':NvimTreeToggle<CR>', nil)
 keymap('n', 'tr', ':NvimTreeRefresh<CR>', nil)
 
 -- telescope shortcuts
