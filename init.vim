@@ -29,6 +29,8 @@ set showbreak=>\ \ \
 "remove trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
+lua require('indentation-config')
+
 lua require('plugins')
 lua require('bufferline-config')
 lua require('onedarkpro-config')
@@ -40,6 +42,7 @@ lua require('nvim-cmp-config')
 lua require('nvim-lsp-config')
 lua require('nvimcomment-config')
 lua require('telescope-config')
+lua require('nvim-dap-config')
 lua require('dapui-config')
 lua require('godap-config')
 lua require('keymaps')

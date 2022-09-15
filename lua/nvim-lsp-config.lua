@@ -103,10 +103,11 @@ function GoOrganizeImports(wait_ms)
 	end
 end
 
-vim.cmd [[
-	autocmd BufWritePre *.go :lua vim.lsp.buf.formatting()
-	autocmd BufWritePre *.go :lua GoOrganizeImports(1000)
-]]
+lspconfig.clangd.setup({
+	capabilities = capabilities,
+	on_attach = on_attach
+})
+
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
@@ -116,3 +117,8 @@ lspconfig.eslint.setup({
 	capabilities = capabilities,
 	on_attach = on_attach
 })
+
+vim.cmd [[
+	autocmd BufWritePre *.go,*js,*ts,*cpp,*c :lua vim.lsp.buf.formatting()
+	autocmd BufWritePre *.go :lua GoOrganizeImports(1000)
+]]
