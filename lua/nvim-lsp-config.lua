@@ -103,11 +103,10 @@ function GoOrganizeImports(wait_ms)
 	end
 end
 
-vim.cmd [[
-	autocmd BufWritePre *.go :lua vim.lsp.buf.formatting()
-	autocmd BufWritePre *.go :lua GoOrganizeImports(1000)
-	autocmd BufWritePre *.scala :lua vim.lsp.buf.formatting()
-]]
+lspconfig.clangd.setup({
+	capabilities = capabilities,
+	on_attach = on_attach
+})
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
@@ -124,3 +123,9 @@ lspconfig.terraformls.setup({
         "tf",
     }
 })
+
+vim.cmd [[
+	autocmd BufWritePre *.scala :lua vim.lsp.buf.formatting()
+	autocmd BufWritePre *.go,*js,*ts,*cpp,*c :lua vim.lsp.buf.formatting()
+	autocmd BufWritePre *.go :lua GoOrganizeImports(1000)
+]]
