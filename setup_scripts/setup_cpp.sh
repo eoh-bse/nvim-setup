@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Do you want to set up C++?"
+echo "Do you want to set up C++? (y for yes)"
 read setup_cpp
 
 if [[ $setup_cpp -ne 'y' ]]; then
@@ -9,4 +9,4 @@ if [[ $setup_cpp -ne 'y' ]]; then
 fi
 
 echo "Installing C/C++ compilers and CMake..."
-sudo dnf install clang cland-devel cmake lldb
+sudo dnf install clang clang-devel cmake lldb

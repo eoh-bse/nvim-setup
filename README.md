@@ -1,3 +1,4 @@
 # Set up Neovim
 
-Run `bash install.sh`
+1. Run `bash install.sh`
+2. Run `bash setup.sh`
