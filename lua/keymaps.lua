@@ -39,7 +39,8 @@ keymap('n', '<F8>', ":lua require'dapui'.eval()<CR>", nil)
 keymap('n', '<F9>', ":lua require'dapui'.float_element('scopes')<CR>", nil)
 keymap('n', '<F10>', ":lua require'dap'.step_over()<CR>", nil)
 keymap('n', '<F11>', ":lua require'dap'.step_into()<CR>", nil)
-keymap('n', '<F12>', ":lua require'dap'.clear_breakpoints()<CR>", nil)
+keymap('n', '<F12>', ":lua require'dap'.step_out()<CR>", nil)
+keymap('n', '<F4>', ":lua require'dap'.clear_breakpoints()<CR>", nil)
 keymap('n', 'dc', ":lua require'dapui'.close()<CR>", nil)
 
 -- dap-go shortcuts
