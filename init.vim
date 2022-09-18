@@ -26,10 +26,7 @@ set wrap
 set linebreak
 set showbreak=>\ \ \
 
-"remove trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
-
-lua require('indentation-config')
+lua require('per-language-config')
 
 lua require('plugins')
 lua require('bufferline-config')
