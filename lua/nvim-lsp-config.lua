@@ -108,7 +108,6 @@ lspconfig.clangd.setup({
 	on_attach = on_attach
 })
 
-
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
 	on_attach = on_attach
@@ -118,7 +117,12 @@ lspconfig.eslint.setup({
 	on_attach = on_attach
 })
 
+local lsp_formatting_options = {
+	trimTrailingWhitespace = true,
+	insertFinalNewline = true,
+}
+
 vim.cmd [[
-	autocmd BufWritePre *.go,*js,*ts,*cpp,*c :lua vim.lsp.buf.formatting()
+	autocmd BufWritePre * :lua vim.lsp.buf.formatting(lsp_formatting_options)
 	autocmd BufWritePre *.go :lua GoOrganizeImports(1000)
 ]]
