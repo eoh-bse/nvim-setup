@@ -124,8 +124,12 @@ lspconfig.terraformls.setup({
     }
 })
 
+local lsp_formatting_options = {
+	trimTrailingWhitespace = true,
+	insertFinalNewline = true,
+}
+
 vim.cmd [[
-	autocmd BufWritePre *.scala :lua vim.lsp.buf.formatting()
-	autocmd BufWritePre *.go,*js,*ts,*cpp,*c :lua vim.lsp.buf.formatting()
+	autocmd BufWritePre * :lua vim.lsp.buf.formatting(lsp_formatting_options)
 	autocmd BufWritePre *.go :lua GoOrganizeImports(1000)
 ]]
