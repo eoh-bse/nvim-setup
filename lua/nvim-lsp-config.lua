@@ -11,7 +11,7 @@ vim.diagnostic.config({
 	}
 })
 
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -36,7 +36,7 @@ lspconfig.sumneko_lua.setup({
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
-				globals = {'vim'},
+				globals = { 'vim' },
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
@@ -67,13 +67,13 @@ lspconfig.gopls.setup({
 	settings = {
 		gopls = {
 			analyses = {
-			unusedparams = true,
-			shadow = true,
-			fieldalignment = true,
-			nilness = true,
-			unusedWrite = true,
-			useany = true,
-			unusedvariable = true,
+				unusedparams = true,
+				shadow = true,
+				fieldalignment = true,
+				nilness = true,
+				unusedWrite = true,
+				useany = true,
+				unusedvariable = true,
 			},
 			staticcheck = true,
 		}
@@ -90,7 +90,7 @@ lspconfig.gopls.setup({
 
 function GoOrganizeImports(wait_ms)
 	local params = vim.lsp.util.make_range_params()
-	params.context = {only = {"source.organizeImports"}}
+	params.context = { only = { "source.organizeImports" } }
 	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
 	for _, res in pairs(result or {}) do
 		for _, r in pairs(res.result or {}) do
@@ -104,6 +104,16 @@ function GoOrganizeImports(wait_ms)
 end
 
 lspconfig.clangd.setup({
+	cmd = {
+		"clangd",
+		"--background-index",
+		-- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
+		-- to add more checks, create .clang-tidy file in the root directory
+		-- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
+		"--clang-tidy",
+		"--completion-style=bundled",
+		"--header-insertion=iwyu"
+	},
 	capabilities = capabilities,
 	on_attach = on_attach
 })
