@@ -66,20 +66,23 @@ lspconfig.gopls.setup({
 	root_dir = lspconfig.util.root_pattern('go.work', 'go.mod', '.git'),
 	settings = {
 		gopls = {
+			codelenses = {
+				gc_details = true,
+				tidy = true,
+				upgrade_dependency = true
+			},
+			usePlaceholders = true,
 			analyses = {
 				unusedparams = true,
 				shadow = true,
 				fieldalignment = true,
 				nilness = true,
-				unusedWrite = true,
+				unusedwrite = true,
 				useany = true,
 				unusedvariable = true,
 			},
 			staticcheck = true,
 		}
-	},
-	init_options = {
-		usePlaceholders = true
 	},
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -113,6 +116,10 @@ lspconfig.clangd.setup({
 		"--clang-tidy",
 		"--completion-style=bundled",
 		"--header-insertion=iwyu"
+	},
+	init_options = {
+		usePlaceholders = true,
+		completeUnimported = true
 	},
 	capabilities = capabilities,
 	on_attach = on_attach
