@@ -114,7 +114,7 @@ lspconfig.clangd.setup({
 		-- to add more checks, create .clang-tidy file in the root directory
 		-- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
 		"--clang-tidy",
-		"--completion-style=bundled",
+		"--completion-style=detailed",
 		"--header-insertion=iwyu"
 	},
 	init_options = {
