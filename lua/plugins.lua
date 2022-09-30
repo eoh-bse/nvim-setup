@@ -30,8 +30,11 @@ return require('packer').startup(function(use)
 	-- telescope
 	use {
 		'nvim-telescope/telescope.nvim', branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
+
+	-- git-blame
+	use { 'f-person/git-blame.nvim' }
 
 	-- debugger
 	use 'mfussenegger/nvim-dap'
@@ -47,4 +50,3 @@ return require('packer').startup(function(use)
     -- scala
     use { 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } }
 end)
-
