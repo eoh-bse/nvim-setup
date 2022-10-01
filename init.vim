@@ -45,3 +45,6 @@ lua require('dapui-config')
 lua require('godap-config')
 lua require('nvim-scala-config')
 lua require('keymaps')
+
+"disable git blame on start
+let g:gitblame_enabled = 0
