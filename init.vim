@@ -14,6 +14,7 @@ set expandtab
 set autoindent
 set smartindent
 set shiftround
+set textwidth=125
 set colorcolumn=125
 set splitright
 set ignorecase
@@ -21,6 +22,7 @@ set smartcase
 set linebreak
 set confirm
 set autoread
+set shortmess+=c
 au FocusGained * :checktime
 
 set wrap
