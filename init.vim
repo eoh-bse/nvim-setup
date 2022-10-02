@@ -1,7 +1,7 @@
 "Vim Settings
-filetype on
-filetype indent on
-filetype plugin on
+" filetype on
+" filetype indent on
+" filetype plugin on
 
 set encoding=UTF-8
 
