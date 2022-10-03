@@ -140,6 +140,6 @@ local lsp_formatting_options = {
 }
 
 vim.cmd [[
-	autocmd BufWritePre * :lua vim.lsp.buf.formatting(lsp_formatting_options)
+	autocmd BufWritePre * :lua vim.lsp.buf.format(lsp_formatting_options)
 	autocmd BufWritePre *.go :lua GoOrganizeImports(1000)
 ]]
