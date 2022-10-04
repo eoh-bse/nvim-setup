@@ -36,6 +36,9 @@ return require('packer').startup(function(use)
 	-- git-blame
 	use { 'f-person/git-blame.nvim' }
 
+	-- git diffview
+	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
 	-- debugger
 	use 'mfussenegger/nvim-dap'
 	use 'leoluz/nvim-dap-go'
