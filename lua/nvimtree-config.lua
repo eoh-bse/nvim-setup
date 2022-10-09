@@ -5,11 +5,13 @@ return require('nvim-tree').setup({
 		enable = true,
 		-- update_cwd = true
 	},
+	open_on_setup = true,
 	diagnostics = {
 		enable = true
 	},
 	view = {
-		side = 'left'
+		side = 'left',
+		hide_root_folder = true
 	},
 	renderer = {
 		highlight_opened_files = 'all'
