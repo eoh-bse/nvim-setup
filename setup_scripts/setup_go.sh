@@ -3,12 +3,12 @@
 echo "Do you want to set up golang? (y for yes)"
 read setup_go
 
-if [[ $setup_go -ne 'y' ]]; then
+if [[ "$setup_go" != "y" ]]; then
 	echo "Not setting up golang for Neovim"
 	exit 0
 fi
 
-if [! go version]; then
+if ! command -v go &> /dev/null; then
 	echo 'go is not installed'
 	exit 1
 fi
