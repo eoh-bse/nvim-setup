@@ -7,6 +7,7 @@ metals_config.settings = {
     showImplicitArguments = true,
     showImplicitConversionsAndClasses = true,
     showInferredType = true,
+    excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
 }
 
 -- *READ THIS*
