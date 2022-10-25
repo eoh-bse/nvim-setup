@@ -6,4 +6,7 @@ chmod +x cs
 
 rm ./cs
 
+coursier install bloop
+coursier install metals
+
 cp ~/.local/share/coursier/bin/metals ~/.cache/nvim/nvim-metals/
