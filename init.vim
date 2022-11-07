@@ -5,7 +5,8 @@
 
 set encoding=UTF-8
 
-syntax on
+" let nvim-treesitter do the syntax highlighting
+syntax off
 
 set number
 set shiftwidth=4

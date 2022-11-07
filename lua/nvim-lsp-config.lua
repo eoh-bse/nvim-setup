@@ -141,9 +141,17 @@ lspconfig.terraformls.setup({
     }
 })
 
+lspconfig.jsonls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach
+})
+
 local lsp_formatting_options = {
-	trimTrailingWhitespace = true,
-	insertFinalNewline = true,
+	formatting_options = {
+		trimTrailingWhitespace = true,
+		insertFinalNewline = true,
+	},
+	async = true,
 }
 
 vim.cmd [[
