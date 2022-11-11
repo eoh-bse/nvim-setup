@@ -17,8 +17,12 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = false
+local function create_lsp_capabilities(snippetSupport)
+	local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+	capabilities.textDocument.completion.completionItem.snippetSupport = snippetSupport
+
+	return capabilities
+end
 
 local on_attach = require('nvim-lsp-keymaps')
 
@@ -26,7 +30,7 @@ local on_attach = require('nvim-lsp-keymaps')
 local lspconfig = require('lspconfig')
 
 lspconfig.sumneko_lua.setup({
-	capabilities = capabilities,
+	capabilities = create_lsp_capabilities(true),
 	on_attach = on_attach,
 	settings = {
 		Lua = {
@@ -51,12 +55,12 @@ lspconfig.sumneko_lua.setup({
 })
 
 lspconfig.pyright.setup({
-	capabilities = capabilities,
+	capabilities = create_lsp_capabilities(true),
 	on_attach = on_attach
 })
 
 lspconfig.bashls.setup({
-	capabilities = capabilities,
+	capabilities = create_lsp_capabilities(true),
 	on_attach = on_attach
 })
 
@@ -84,7 +88,7 @@ lspconfig.gopls.setup({
 			staticcheck = true,
 		}
 	},
-	capabilities = capabilities,
+	capabilities = create_lsp_capabilities(false),
 	on_attach = on_attach,
 	flags = {
 		debounce_text_changes = 150,
@@ -121,21 +125,29 @@ lspconfig.clangd.setup({
 		usePlaceholders = true,
 		completeUnimported = true
 	},
-	capabilities = capabilities,
+	capabilities = create_lsp_capabilities(true),
 	on_attach = on_attach
 })
 
+lspconfig.html.setup({
+	capabilities = create_lsp_capabilities(true),
+	on_attach = on_attach
+})
+lspconfig.cssls.setup({
+	capabilities = create_lsp_capabilities(true),
+	on_attach = on_attach
+})
 lspconfig.tsserver.setup({
-	capabilities = capabilities,
+	capabilities = create_lsp_capabilities(true),
 	on_attach = on_attach
 })
 lspconfig.eslint.setup({
-	capabilities = capabilities,
+	capabilities = create_lsp_capabilities(true),
 	on_attach = on_attach
 })
 
 lspconfig.jsonls.setup({
-	capabilities = capabilities,
+	capabilities = create_lsp_capabilities(true),
 	on_attach = on_attach
 })
 
