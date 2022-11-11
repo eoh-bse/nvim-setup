@@ -39,6 +39,7 @@ lua require('lualine-config')
 lua require('nvimtree-config')
 lua require('toggleterm-config')
 lua require('nvimtreesitter-config')
+lua require('vsnip-config')
 lua require('nvim-cmp-config')
 lua require('nvim-lsp-config')
 lua require('nvimcomment-config')
@@ -47,7 +48,5 @@ lua require('nvim-dap-config')
 lua require('dapui-config')
 lua require('godap-config')
 lua require('nvim-scala-config')
+lua require('gitblame-config')
 lua require('keymaps')
-
-"disable git blame on start
-let g:gitblame_enabled = 0
