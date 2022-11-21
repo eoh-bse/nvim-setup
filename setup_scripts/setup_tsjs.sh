@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo "Do you want to set up typescript/javascript? (y for yes)"
 read setup_tsjs
 
@@ -15,3 +17,5 @@ fi
 
 echo "Installing typescript/javascript language servers..."
 sudo npm i -g typescript typescript-language-server vscode-langservers-extracted
+
+echo "Successfully set up javascript and typescript for Neovim"

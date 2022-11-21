@@ -129,6 +129,12 @@ lspconfig.clangd.setup({
 	on_attach = on_attach
 })
 
+-- Set up nvim-jdtls for full java support
+lspconfig.jdtls.setup({
+	capabilities = create_lsp_capabilities(true),
+	on_attach = on_attach
+})
+
 lspconfig.html.setup({
 	capabilities = create_lsp_capabilities(true),
 	on_attach = on_attach
