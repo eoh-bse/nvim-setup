@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo "Do you want to set up java? (y for yes)"
 read setup_java
 
@@ -25,8 +27,11 @@ wget -c https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.
 tar -xzf $gzip_name -C $dir_name
 mv -n $dir_name $bin_dir
 
-if grep -q $jdtls_path "$HOME/.bashrc"; then
+if ! grep -q $jdtls_path "$HOME/.bashrc"; then
+	echo "Adding jdtls to path..."
 	echo "export PATH=\$PATH:$jdtls_path" >> $HOME/.bashrc
 fi
 
 rm $gzip_name
+
+echo "Successfully set up java for Neovim"
