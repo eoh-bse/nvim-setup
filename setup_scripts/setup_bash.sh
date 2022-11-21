@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo "Do you want to set up bash? (y for yes)"
 read setup_bash
 
@@ -10,3 +12,5 @@ fi
 
 echo "Setting up bash language server..."
 sudo npm i -g bash-language-server
+
+echo "Successfully set up bash for Neovim"
