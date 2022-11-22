@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo "Do you want to set up C++? (y for yes)"
 read setup_cpp
 
@@ -10,3 +12,5 @@ fi
 
 echo "Installing C/C++ compilers and CMake..."
 sudo dnf install clang clang-devel clang-tools-extra cmake lldb
+
+echo "Successfully set up C++ for Neovim"
