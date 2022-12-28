@@ -131,7 +131,7 @@ lspconfig.clangd.setup({
 
 -- Set up nvim-jdtls for full java support
 lspconfig.jdtls.setup({
-	capabilities = create_lsp_capabilities(true),
+	capabilities = create_lsp_capabilities(false),
 	on_attach = on_attach
 })
 
@@ -162,7 +162,7 @@ local lsp_formatting_options = {
 		trimTrailingWhitespace = true,
 		insertFinalNewline = true,
 	},
-	async = true,
+	async = true
 }
 
 vim.cmd [[
