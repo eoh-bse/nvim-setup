@@ -111,22 +111,28 @@ function GoOrganizeImports(wait_ms)
 end
 
 lspconfig.clangd.setup({
-    cmd = {
-        "clangd",
-        "--background-index",
-        -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
-        -- to add more checks, create .clang-tidy file in the root directory
-        -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
-        "--clang-tidy",
-        "--completion-style=detailed",
-        "--header-insertion=iwyu"
-    },
-    init_options = {
-        usePlaceholders = true,
-        completeUnimported = true
-    },
-    capabilities = create_lsp_capabilities(true),
-    on_attach = on_attach
+	cmd = {
+		"clangd",
+		"--background-index",
+		-- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
+		-- to add more checks, create .clang-tidy file in the root directory
+		-- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
+		"--clang-tidy",
+		"--completion-style=detailed",
+		"--header-insertion=iwyu"
+	},
+	init_options = {
+		usePlaceholders = true,
+		completeUnimported = true
+	},
+	capabilities = create_lsp_capabilities(true),
+	on_attach = on_attach
+})
+
+-- Set up nvim-jdtls for full java support
+lspconfig.jdtls.setup({
+	capabilities = create_lsp_capabilities(false),
+	on_attach = on_attach
 })
 
 lspconfig.html.setup({

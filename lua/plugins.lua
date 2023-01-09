@@ -1,10 +1,10 @@
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
-	use 'kyazdani42/nvim-web-devicons'
+	use 'nvim-tree/nvim-web-devicons'
 	use "olimorris/onedarkpro.nvim"
 	use 'nvim-lualine/lualine.nvim'
-	use 'kyazdani42/nvim-tree.lua'
+	use 'nvim-tree/nvim-tree.lua'
 
 	use { 'akinsho/bufferline.nvim', tag = 'v2.*' }
 
