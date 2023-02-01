@@ -26,13 +26,11 @@ local function open_nvim_tree(data)
 	local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 	local is_directory = vim.fn.isdirectory(data.file) == 1
 
-	if not no_name and not is_directory then
+	if not is_directory then
 		return
 	end
 
-	if is_directory then
-		vim.cmd.cd(data.file)
-	end
+	vim.cmd.cd(data.file)
 
 	require("nvim-tree.api").tree.open()
 end
