@@ -16,6 +16,4 @@ sudo dnf install lazygit
 echo "Installing Hack Nerd Font (for nvim-tree icons)..."
 bash install_scripts/install_nerd_fonts.sh
 
-echo "For lua, install the language server at https://github.com/sumneko/lua-language-server/releases"
-
 echo "If you want things to look even better, install Jetbrains Mono font: https://www.jetbrains.com/lp/mono/#how-to-install"
