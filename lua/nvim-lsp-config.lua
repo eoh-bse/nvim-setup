@@ -29,7 +29,7 @@ local on_attach = require('nvim-lsp-keymaps')
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local lspconfig = require('lspconfig')
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
     capabilities = create_lsp_capabilities(true),
     on_attach = on_attach,
     settings = {
