@@ -1,16 +1,22 @@
-vim.opt.termguicolors = true
-
 require('bufferline').setup({
 	options = {
 		diagnostics = 'nvim_lsp',
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
-			return "("..count..")"
+			return "(" .. count .. ")"
 		end,
-		offsets = {{
+		indicator = {
+			style = "underline"
+		},
+		offsets = { {
 			filetype = 'NvimTree',
 			text = 'Explorer',
 			highlight = 'Directory',
 			text_align = 'right',
-		}}
+		} }
+	},
+	highlights = {
+		buffer_selected = {
+			bold = true,
+		}
 	}
 })
