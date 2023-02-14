@@ -4,6 +4,7 @@
 " filetype plugin on
 
 set encoding=UTF-8
+set termguicolors
 
 " let nvim-treesitter do the syntax highlighting
 syntax off
