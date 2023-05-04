@@ -19,6 +19,7 @@ require('nvim-treesitter.configs').setup({
 		'dockerfile',
 		'lua',
 		'regex',
+		'sql',
 		'proto',
 		"yaml",
 	},

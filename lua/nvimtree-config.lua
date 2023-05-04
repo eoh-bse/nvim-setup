@@ -13,9 +13,9 @@ require('nvim-tree').setup({
 	},
 	view = {
 		side = 'left',
-		hide_root_folder = true
 	},
 	renderer = {
+		root_folder_label = false,
 		highlight_opened_files = 'all'
 	}
 })
