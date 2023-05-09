@@ -23,7 +23,41 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-	vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+	vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 end
 
-return on_attach
+local lsp_formatting_options = {
+	formatting_options = {
+		trimTrailingWhitespace = true,
+		insertFinalNewline = true,
+	},
+	async = false
+}
+
+local setup_on_attach = function(auto_format, command, additional_action)
+	return function(client, bufnr)
+		if not auto_format then
+			return on_attach
+		end
+
+		local options = {
+			buffer = bufnr
+		}
+
+		if command then
+			options.command = command
+		else
+			options.callback = function(event)
+				vim.lsp.buf.format(lsp_formatting_options)
+				if additional_action then
+					additional_action()
+				end
+			end
+		end
+
+		vim.api.nvim_create_autocmd('BufWritePre', options)
+		return on_attach(client, bufnr)
+	end
+end
+
+return setup_on_attach
