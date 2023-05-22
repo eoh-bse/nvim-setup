@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+	vim.keymap.set('n', '<space>gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 end
 
@@ -37,7 +37,7 @@ local lsp_formatting_options = {
 local setup_on_attach = function(auto_format, command, additional_action)
 	return function(client, bufnr)
 		if not auto_format then
-			return on_attach
+			return on_attach(client, bufnr)
 		end
 
 		local options = {
