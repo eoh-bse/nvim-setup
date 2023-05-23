@@ -15,8 +15,8 @@ set tabstop=4
 set autoindent
 set smartindent
 set shiftround
-set textwidth=125
-set colorcolumn=125
+set textwidth=110
+set colorcolumn=110
 set splitright
 set ignorecase
 set smartcase
