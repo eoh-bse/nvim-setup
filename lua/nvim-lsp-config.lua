@@ -56,7 +56,7 @@ lspconfig.lua_ls.setup({
 
 lspconfig.pyright.setup({
 	capabilities = create_lsp_capabilities(true),
-	on_attach = setup_on_attach(true, nil, nil)
+	on_attach = setup_on_attach(false, nil, nil)
 })
 
 lspconfig.bashls.setup({
