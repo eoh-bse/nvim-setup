@@ -3,7 +3,7 @@ local types = require('cmp.types')
 
 cmp.setup({
 	completion = {
-		completeopt = 'menu,menuone,noinsert,noselect',
+		completeopt = 'menu,menuone,noinsert',
 	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
