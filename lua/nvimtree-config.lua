@@ -13,6 +13,11 @@ require('nvim-tree').setup({
 	},
 	view = {
 		side = 'left',
+		mappings = {
+			list = {
+				{ key = "<C-e>", action = "" }
+			}
+		}
 	},
 	renderer = {
 		root_folder_label = false,
