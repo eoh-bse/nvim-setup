@@ -7,7 +7,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 echo "Installing prerequisites for fuzzy searching..."
-sudo dnf install the_silver_searcher ripgrep fd-find
+sudo dnf install the_silver_searcher ripgrep fd-find wl-clipboard
 
 echo "Installing lazygit..."
 sudo dnf copr enable atim/lazygit -y
