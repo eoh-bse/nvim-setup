@@ -1,6 +1,8 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+local keymaps_on_attach = require("nvim-tree-keymaps")
+
 require('nvim-tree').setup({
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -12,17 +14,13 @@ require('nvim-tree').setup({
 		enable = true
 	},
 	view = {
-		side = 'left',
-		mappings = {
-			list = {
-				{ key = "<C-e>", action = "" }
-			}
-		}
+		side = 'left'
 	},
 	renderer = {
 		root_folder_label = false,
 		highlight_opened_files = 'all'
-	}
+	},
+	on_attach = keymaps_on_attach
 })
 
 local function open_nvim_tree(data)
