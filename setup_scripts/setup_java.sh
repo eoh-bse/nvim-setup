@@ -18,18 +18,19 @@ fi
 echo "Setting up java language server and debugger..."
 gzip_name="jdtls.tar.gz"
 dir_name="java-language-server"
-bin_dir="$HOME/bin/"
-jdtls_path='$HOME/bin/java-language-server/bin/'
+bin_dir="$HOME/.local/bin"
+jdtls_path="$bin_dir/$dir_name"
 
-mkdir -p $bin_dir
 mkdir -p $dir_name
 wget -c https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz -O $gzip_name
 tar -xzf $gzip_name -C $dir_name
-mv -f $dir_name $bin_dir
+rm -rf $jdtls_path
+mv $dir_name $bin_dir
 
-if ! grep -q $jdtls_path "$HOME/.bashrc"; then
+if ! grep -q "$jdtls_path/bin" "$HOME/.bashrc"; then
 	echo "Adding jdtls to path..."
-	echo "export PATH=\$PATH:$jdtls_path" >> $HOME/.bashrc
+	echo "export PATH=\$PATH:$jdtls_path/bin" >> $HOME/.bashrc
+	source $HOME/.bashrc
 fi
 
 rm $gzip_name
