@@ -9,8 +9,7 @@ end
 -- exit to normal mode in terminal mode
 keymap('t', '<F2>', '<C-\\><C-n>', nil)
 
--- split
-keymap('n', '<A-s>', ':vsplit<CR>', nil) -- decrease vertical split size
+-- window management
 keymap('n', '<A-k>', ':vertical resize +5<CR>', nil) -- increase vertical split size
 keymap('n', '<A-j>', ':vertical resize -5<CR>', nil) -- decrease vertical split size
 keymap('n', '<A-w>', ':bd<CR>', nil)
