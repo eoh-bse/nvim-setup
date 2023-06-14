@@ -24,6 +24,7 @@ rm $lua_ls
 if ! grep -q "$lua_ls_path/bin" "$HOME/.bashrc"; then
 	echo "Adding lua_ls to path..."
 	echo "export PATH=\$PATH:$lua_ls_path/bin" >> $HOME/.bashrc
+	source .bashrc
 fi
 
 echo "Successfully set up lua for Neovim"
