@@ -4,7 +4,6 @@ require('nvim-treesitter.configs').setup({
 		'gomod',
 		'gowork',
 		'java',
-		'scala',
 		'c_sharp',
 		'c',
 		'cpp',
