@@ -25,9 +25,10 @@ keymap('n', 'tg', ':NvimTreeToggle<CR>', nil)
 keymap('n', 'tr', ':NvimTreeRefresh<CR>', nil)
 
 -- telescope shortcuts
-keymap('n', '<C-p>', ":lua require('telescope.builtin').git_files({ show_untracked = true })<CR>", nil)
-keymap('n', '<C-f>', ":lua require('telescope.builtin').find_files()<CR>", nil)
+keymap('n', '<A-p>', ":lua require('telescope.builtin').git_files({ show_untracked = true })<CR>", nil)
+keymap('n', '<A-P>', ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", nil)
 keymap('n', '<A-f>', ":lua require('telescope.builtin').live_grep({ show_untracked = true })<CR>", nil)
+keymap('n', '<A-F>', ":lua require('telescope.builtin').grep_string()<CR>", nil)
 keymap('n', 'Fr', ":lua require('telescope.builtin').lsp_references()<CR>", nil)
 
 -- dap shortcuts
