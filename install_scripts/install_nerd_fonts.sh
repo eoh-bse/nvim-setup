@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-fontname=hack-nerd-font
+# fontname=hack-nerd-font
+fontname=jetbrains-nerd-font
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -O ~/Downloads/$fontname.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip -O \
+	~/Downloads/$fontname.zip
 
 if [ ! -d "~Downloads/$fontname" ]; then
 	mkdir ~/Downloads/$fontname

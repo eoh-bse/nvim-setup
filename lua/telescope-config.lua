@@ -1,7 +1,9 @@
-require('telescope').setup({
-	preview = "file",
-	file_ignore_patterns = {
-		"build/",
-		"node_modules/"
-	}
-})
+return function()
+	require('telescope').setup({
+		preview = "file",
+		file_ignore_patterns = {
+			"build/",
+			"node_modules/"
+		}
+	})
+end

@@ -1,8 +1,37 @@
 -- Vim Settings
 
+-- for lazy.nvim
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- for nvim-tree.nvim
+vim.g.loaded_netrw = true
+vim.g.loaded_netrwPlugin = true
+
+-- for bufferline.nvim
+vim.opt.termguicolors = true
+
+-- for vim-vsnip
+vim.g.vsnip_snippet_dir = "~/.config/nvim/vsnip_snippets/"
+
+-- for gitblame.nvim
+vim.g.gitblame_enabled = false
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
 vim.cmd([[
 set encoding=utf-8
-set termguicolors
 
 " let nvim-treesitter do the syntax highlighting
 syntax off
@@ -29,22 +58,6 @@ set linebreak
 set showbreak=>\ \ \
 ]])
 
-require('per-language-config')
-
-require('plugins')
-require('bufferline-config')
-require('onedarkpro-config')
-require('lualine-config')
-require('nvimtree-config')
-require('toggleterm-config')
-require('nvimtreesitter-config')
-require('vsnip-config')
-require('nvim-cmp-config')
-require('nvim-lsp-config')
-require('nvimcomment-config')
-require('telescope-config')
-require('nvim-dap-config')
-require('dapui-config')
-require('godap-config')
-require('gitblame-config')
-require('keymaps')
+require("per-language-config")
+require("plugins")
+require("keymaps")
