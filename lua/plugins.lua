@@ -107,14 +107,4 @@ local plugins = {
 	}
 }
 
-
-local options = {
-	performance = {
-		disabled_plugins = {
-			"tutor",
-			"netrwPlugin"
-		}
-	}
-}
-
-require("lazy").setup(plugins, options)
+require("lazy").setup(plugins)
