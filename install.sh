@@ -9,5 +9,5 @@ echo "Installing lazygit..."
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
 
-echo "Installing Jetbrains Nerd Font (for nvim-tree icons)..."
-bash install_scripts/install_nerd_fonts.sh
+echo "Installing JetbrainsMono Nerd Font (for nvim-tree icons)..."
+bash install_scripts/install_nerd_fonts.sh JetbrainsMono
