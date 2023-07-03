@@ -8,7 +8,7 @@ local plugins = {
 		"nvim-tree/nvim-tree.lua",
 		config = require("nvimtree-config"),
 		dependencies = "nvim-tree/nvim-web-devicons",
-		priority = 95
+		event = "VeryLazy"
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -107,4 +107,18 @@ local plugins = {
 	}
 }
 
-require("lazy").setup(plugins)
+local options = {
+	performance = {
+		cache = {
+			enabled = true
+		},
+		rtp = {
+			disabled_plugins = {
+				"netrwPlugin",
+				"tutor"
+			}
+		}
+	}
+}
+
+require("lazy").setup(plugins, options)
