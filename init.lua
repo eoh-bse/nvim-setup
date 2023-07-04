@@ -5,8 +5,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- for nvim-tree.nvim
-vim.g.loaded_netrw = false
-vim.g.loaded_netrwPlugin = false
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
 
 -- for bufferline.nvim
 vim.opt.termguicolors = true
