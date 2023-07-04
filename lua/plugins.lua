@@ -5,6 +5,11 @@ local plugins = {
 		priority = 100
 	},
 	{
+		"eoh-bse/minintro.nvim",
+		config = true,
+		priority = 100
+	},
+	{
 		"nvim-tree/nvim-tree.lua",
 		config = require("nvimtree-config"),
 		dependencies = "nvim-tree/nvim-web-devicons",
@@ -63,7 +68,7 @@ local plugins = {
 	},
 	{
 		"mg979/vim-visual-multi",
-		event = { "BufReadPost", "BufNewFile" }
+		event = "VeryLazy"
 	},
 	{
 		"akinsho/toggleterm.nvim",
@@ -74,12 +79,12 @@ local plugins = {
 	{
 		"mfussenegger/nvim-dap",
 		config = require("nvim-dap-config"),
-		event = { "BufReadPost", "BufNewFile" }
+		event = "VeryLazy"
 	},
 	{
 		"rcarriga/nvim-dap-ui",
 		config = require("dapui-config"),
-		event = { "BufReadPost", "BufNewFile" }
+		event = "VeryLazy"
 	},
 	{
 		"leoluz/nvim-dap-go",
@@ -88,7 +93,7 @@ local plugins = {
 	},
 	{
 		"f-person/git-blame.nvim",
-		event = { "BufReadPost", "BufNewFile" }
+		event = "VeryLazy"
 	},
 	{
 		"numToStr/Comment.nvim",
@@ -98,7 +103,7 @@ local plugins = {
 	{
 		"sindrets/diffview.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		event = { "BufReadPost", "BufNewFile" }
+		event = "VeryLazy"
 	},
 	{
 		"iamcco/markdown-preview.nvim",

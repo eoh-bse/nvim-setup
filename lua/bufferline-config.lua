@@ -9,13 +9,14 @@ return function()
 				style = "underline"
 			},
 			offsets = {
-				{
-					filetype = 'NvimTree',
-					text = 'Explorer',
-					highlight = 'Directory',
-					text_align = 'right'
-				}
-			}
+				-- {
+				-- 	filetype = 'NvimTree',
+				-- 	text = 'Explorer',
+				-- 	highlight = 'Directory',
+				-- 	text_align = 'right'
+				-- }
+			},
+			always_show_bufferline = false
 		},
 		highlights = {
 			buffer_selected = {

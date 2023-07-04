@@ -5,8 +5,8 @@ return function()
 	local keymaps_on_attach = require("nvim-tree-keymaps")
 
 	require('nvim-tree').setup({
-		disable_netrw = false,
-		hijack_netrw = false,
+		disable_netrw = true,
+		hijack_netrw = true,
 		update_focused_file = {
 			enable = true,
 			-- update_cwd = true
@@ -28,7 +28,7 @@ return function()
 					local start_point_y = (vim.opt.lines:get() - tree_h) / 2 - vim.opt.cmdheight:get()
 
 					return {
-						border = "rounded",
+						border = "double",
 						relative = "editor",
 						row = start_point_y,
 						col = start_point_x,
