@@ -112,7 +112,7 @@ local plugins = {
 	},
 	{
 		"scalameta/nvim-metals",
-		dependencies = { "nvim-lua.plenary.nvim" },
+		dependencies = { "nvim-lua/plenary.nvim" },
 		config = require("nvim-scala-config"),
 		ft = { "scala" }
 	}
