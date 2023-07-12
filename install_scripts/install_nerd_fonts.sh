@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
-fontname=hack-nerd-font
+set -e
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -O ~/Downloads/$fontname.zip
+fontname=$1
+fonts_download_path=$HOME/Downloads
+fonts_install_path=$HOME/.local/share/fonts
 
-if [ ! -d "~Downloads/$fontname" ]; then
-	mkdir ~/Downloads/$fontname
-fi
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/$fontname.zip -O \
+	$fonts_download_path/$fontname.zip
 
-unzip ~/Downloads/$fontname.zip -d ~/Downloads/$fontname
-sudo mv ~/Downloads/$fontname /usr/share/fonts/
+mkdir -p $fonts_install_path/$fontname
 
-rm ~/Downloads/$fontname.zip
+unzip $fonts_download_path/$fontname.zip -d $fonts_install_path/$fontname
+
+rm $fonts_download_path/$fontname.zip
 
 fc-cache -f -v
