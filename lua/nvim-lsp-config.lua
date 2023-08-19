@@ -62,7 +62,7 @@ return function()
 
 	lspconfig.bashls.setup({
 		capabilities = create_lsp_capabilities(true),
-		on_attach = setup_on_attach(true, nil, nil)
+		on_attach = setup_on_attach(false, nil, nil)
 	})
 
 	local function go_organize_imports(wait_ms)
