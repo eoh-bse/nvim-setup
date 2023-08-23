@@ -1,9 +1,11 @@
 return function()
-	require('telescope').setup({
-		preview = "file",
+	local telescope = require("telescope")
+	telescope.setup({
+		preview = true,
 		file_ignore_patterns = {
-			"build/",
 			"node_modules/"
 		}
 	})
+
+	telescope.load_extension("fzf")
 end
