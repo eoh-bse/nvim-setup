@@ -1,7 +1,13 @@
 local plugins = {
+	-- {
+	-- 	"olimorris/onedarkpro.nvim",
+	-- 	config = require("onedarkpro-config"),
+	-- 	priority = 100
+	-- },
 	{
-		"olimorris/onedarkpro.nvim",
-		config = require("onedarkpro-config"),
+		"catppuccin/nvim",
+		name = "catppuccin",
+		init = function() vim.cmd.colorscheme "catppuccin" end,
 		priority = 100
 	},
 	{

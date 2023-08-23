@@ -2,7 +2,7 @@ local HEIGHT_RATIO = 0.8
 local WIDTH_RATIO = 0.5
 
 return function()
-	local keymaps_on_attach = require("nvim-tree-keymaps")
+	local keymaps_on_attach = require("nvimtree-keymaps")
 
 	require('nvim-tree').setup({
 		disable_netrw = true,
