@@ -1,3 +1,38 @@
+local lsp_autocmd_group = vim.api.nvim_create_augroup("UserLspConfig", {});
+local setup_lsp_keymaps = require("nvim-lsp-keymaps")
+
+local lsp_formatting_options = {
+	formatting_options = {
+		trimTrailingWhitespace = true,
+		insertFinalNewline = true,
+	},
+	async = false
+}
+
+local setup_on_attach = function(auto_format, command, additional_action)
+	return function(client, bufnr)
+		if not auto_format then return end
+
+		local options = {
+			group = lsp_autocmd_group,
+			buffer = bufnr
+		}
+
+		if command then
+			options.command = command
+		else
+			options.callback = function(event)
+				vim.lsp.buf.format(lsp_formatting_options)
+				if additional_action then
+					additional_action()
+				end
+			end
+		end
+
+		vim.api.nvim_create_autocmd("BufWritePre", options)
+	end
+end
+
 return function()
 	-- Setup lspconfig.
 	-- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -8,40 +43,39 @@ return function()
 		underline = true,
 		severity_sort = true,
 		float = {
-			focusable = false,
+			focusable = false
 		}
 	})
 
 	local opts = { noremap = true, silent = true }
-	vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-	vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-	vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-	vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+	vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
+	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+	vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
-	local function create_lsp_capabilities(snippetSupport)
-		local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-		capabilities.textDocument.completion.completionItem.snippetSupport = snippetSupport
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	local capabilities_with_snippet =
+		require("cmp_nvim_lsp").default_capabilities(capabilities)
+	capabilities_with_snippet.textDocument.completion.completionItem.snippetSupport = true
 
-		return capabilities
-	end
+	local capabilities_without_snippet =
+		require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-	local setup_on_attach = require('nvim-lsp-keymaps')
-
-	-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-	local lspconfig = require('lspconfig')
+	-- Replace <YOUR_LSP_SERVER> with each lsp server you"ve enabled.
+	local lspconfig = require("lspconfig")
 
 	lspconfig.lua_ls.setup({
-		capabilities = create_lsp_capabilities(true),
+		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil),
 		settings = {
 			Lua = {
 				runtime = {
-					-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-					version = 'LuaJIT',
+					-- Tell the language server which version of Lua you"re using (most likely LuaJIT in the case of Neovim)
+					version = "LuaJIT",
 				},
 				diagnostics = {
 					-- Get the language server to recognize the `vim` global
-					globals = { 'vim' },
+					globals = { "vim" },
 				},
 				workspace = {
 					-- Make the server aware of Neovim runtime files
@@ -50,18 +84,18 @@ return function()
 				-- Do not send telemetry data containing a randomized but unique identifier
 				telemetry = {
 					enable = false,
-				},
-			},
+				}
+			}
 		}
 	})
 
 	lspconfig.pyright.setup({
-		capabilities = create_lsp_capabilities(true),
+		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(false, nil, nil)
 	})
 
 	lspconfig.bashls.setup({
-		capabilities = create_lsp_capabilities(true),
+		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(false, nil, nil)
 	})
 
@@ -81,9 +115,9 @@ return function()
 	end
 
 	lspconfig.gopls.setup({
-		cmd = { 'gopls', 'serve' },
-		filetypes = { 'go', 'gomod' },
-		root_dir = lspconfig.util.root_pattern('go.work', 'go.mod', '.git'),
+		cmd = { "gopls", "serve" },
+		filetypes = { "go", "gomod" },
+		root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
 		settings = {
 			gopls = {
 				codelenses = {
@@ -104,12 +138,10 @@ return function()
 				staticcheck = true,
 			}
 		},
-		capabilities = create_lsp_capabilities(false),
-		on_attach = setup_on_attach(true, nil, function()
-			go_organize_imports(1000)
-		end),
+		capabilities = capabilities_without_snippet,
+		on_attach = setup_on_attach(true, nil, function() go_organize_imports(1000) end),
 		flags = {
-			debounce_text_changes = 150,
+			debounce_text_changes = 150
 		}
 	})
 
@@ -128,35 +160,37 @@ return function()
 			usePlaceholders = true,
 			completeUnimported = true
 		},
-		capabilities = create_lsp_capabilities(true),
+		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
 
 	-- Set up nvim-jdtls for full java support
 	lspconfig.jdtls.setup({
-		capabilities = create_lsp_capabilities(false),
+		capabilities = capabilities_without_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
 
 	lspconfig.html.setup({
-		capabilities = create_lsp_capabilities(true),
+		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
 	lspconfig.cssls.setup({
-		capabilities = create_lsp_capabilities(true),
+		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
 	lspconfig.tsserver.setup({
-		capabilities = create_lsp_capabilities(true),
+		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(false, nil, nil)
 	})
 	lspconfig.eslint.setup({
-		capabilities = create_lsp_capabilities(true),
-		on_attach = setup_on_attach(true, 'EslintFixAll', nil)
+		capabilities = capabilities_with_snippet,
+		on_attach = setup_on_attach(true, "EslintFixAll", nil)
 	})
 
 	lspconfig.jsonls.setup({
-		capabilities = create_lsp_capabilities(true),
+		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
+
+	setup_lsp_keymaps(lsp_autocmd_group)
 end
