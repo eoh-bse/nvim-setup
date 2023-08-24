@@ -8,6 +8,17 @@ local plugins = {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		init = function() vim.cmd.colorscheme "catppuccin" end,
+		config = function()
+			require("catppuccin").setup({
+				color_overrides = {
+					mocha = {
+						base = "#111111",
+						mantle = "#111111",
+						crust = "#111111",
+					},
+				}
+			})
+		end,
 		priority = 100
 	},
 	{
