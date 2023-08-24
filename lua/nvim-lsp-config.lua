@@ -11,7 +11,7 @@ local lsp_formatting_options = {
 
 local setup_on_attach = function(auto_format, command, additional_action)
 	return function(client, bufnr)
-		if not auto_format then return end
+		if not auto_format or not client.supports_method("textDocument/formatting") then return end
 
 		local options = {
 			group = lsp_autocmd_group,
@@ -91,12 +91,12 @@ return function()
 
 	lspconfig.pyright.setup({
 		capabilities = capabilities_with_snippet,
-		on_attach = setup_on_attach(false, nil, nil)
+		on_attach = setup_on_attach(true, nil, nil)
 	})
 
 	lspconfig.bashls.setup({
 		capabilities = capabilities_with_snippet,
-		on_attach = setup_on_attach(false, nil, nil)
+		on_attach = setup_on_attach(true, nil, nil)
 	})
 
 	local function go_organize_imports(wait_ms)
