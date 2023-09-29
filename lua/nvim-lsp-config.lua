@@ -60,6 +60,7 @@ return function()
 
 	local capabilities_without_snippet =
 		require("cmp_nvim_lsp").default_capabilities(capabilities)
+	capabilities_without_snippet.textDocument.completion.completionItem.snippetSupport = false
 
 	-- Replace <YOUR_LSP_SERVER> with each lsp server you"ve enabled.
 	local lspconfig = require("lspconfig")
@@ -160,7 +161,7 @@ return function()
 			usePlaceholders = true,
 			completeUnimported = true
 		},
-		capabilities = capabilities_with_snippet,
+		capabilities = capabilities_without_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
 
