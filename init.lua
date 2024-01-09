@@ -17,6 +17,14 @@ vim.g.vsnip_snippet_dir = "~/.config/nvim/vsnip_snippets/"
 -- for gitblame.nvim
 vim.g.gitblame_enabled = false
 
+-- turn off providers
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+
+-- turn off lsp logging
+vim.lsp.set_log_level("off")
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
