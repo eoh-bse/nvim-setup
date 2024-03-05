@@ -116,8 +116,8 @@ return function()
 	end
 
 	lspconfig.gopls.setup({
-		cmd = { "gopls", "serve" },
-		filetypes = { "go", "gomod" },
+		cmd = { "gopls" },
+		filetypes = { "go", "gomod", "gowork", "gotmpl" },
 		root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
 		settings = {
 			gopls = {
@@ -163,6 +163,11 @@ return function()
 		},
 		capabilities = capabilities_without_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
+	})
+
+	lspconfig.arduino_language_server.setup({
+		capabilities = capabilities_with_snippet,
+		on_attach = setup_on_attach(false, nil, nil)
 	})
 
 	-- Set up nvim-jdtls for full java support
