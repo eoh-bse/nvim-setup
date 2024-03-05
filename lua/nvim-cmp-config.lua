@@ -4,7 +4,7 @@ return function()
 
 	cmp.setup({
 		completion = {
-			completeopt = 'menu,menuone,noinsert',
+			completeopt = 'menu,menuone,noinsert,noselect',
 		},
 		snippet = {
 			-- REQUIRED - you must specify a snippet engine
