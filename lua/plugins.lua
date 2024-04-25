@@ -101,6 +101,7 @@ local plugins = {
 	{
 		"rcarriga/nvim-dap-ui",
 		config = require("dapui-config"),
+		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		event = "VeryLazy"
 	},
 	{
