@@ -1,4 +1,23 @@
-# Set up Neovim
+# Minimal Neovim Configuration
 
-1. Run necessary setup scripts in ./install_scripts/
-2. Run necessary setup scripts in ./setup_scripts/
+## Dependencies
+
+### Language and Language Servers
+* clang, clangd, cmake, lldb, clang-tidy
+* go, gopls, dlv, staticcheck
+* bash-language-server
+* lua-language-server
+
+### Version Control
+* git
+* lazygit
+
+### Utilities
+* fzf
+* the_silver_searcher
+* ripgrep
+* fd-find
+* wl-clipboard (for Wayland on Linux)
+
+### Fonts
+* JetbrainsMono Nerd Font

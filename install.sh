@@ -3,7 +3,7 @@
 set -o errexit
 
 echo "Installing prerequisites for fuzzy searching..."
-sudo dnf install the_silver_searcher ripgrep fd-find wl-clipboard
+sudo dnf install fzf the_silver_searcher ripgrep fd-find wl-clipboard
 
 echo "Installing lazygit..."
 sudo dnf copr enable atim/lazygit -y
