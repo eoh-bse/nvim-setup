@@ -3,7 +3,7 @@
 ## Dependencies
 
 ### Language and Language Servers
-* clang, clangd, cmake, lldb, clang-tidy
+* clang, clangd, cmake, lldb, clang-tidy, clang-format, clang-tools
 * go, gopls, dlv, staticcheck
 * bash-language-server
 * lua-language-server
