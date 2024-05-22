@@ -165,38 +165,38 @@ return function()
 		on_attach = setup_on_attach(true, nil, nil)
 	})
 
-	lspconfig.arduino_language_server.setup({
-		capabilities = capabilities_with_snippet,
-		on_attach = setup_on_attach(false, nil, nil)
-	})
-
-	-- Set up nvim-jdtls for full java support
-	lspconfig.jdtls.setup({
-		capabilities = capabilities_without_snippet,
-		on_attach = setup_on_attach(true, nil, nil)
-	})
-
-	lspconfig.html.setup({
-		capabilities = capabilities_with_snippet,
-		on_attach = setup_on_attach(true, nil, nil)
-	})
+	-- lspconfig.arduino_language_server.setup({
+	-- 	capabilities = capabilities_with_snippet,
+	-- 	on_attach = setup_on_attach(false, nil, nil)
+	-- })
+	--
+	-- -- Set up nvim-jdtls for full java support
+	-- lspconfig.jdtls.setup({
+	-- 	capabilities = capabilities_without_snippet,
+	-- 	on_attach = setup_on_attach(true, nil, nil)
+	-- })
+	--
+	-- lspconfig.html.setup({
+	-- 	capabilities = capabilities_with_snippet,
+	-- 	on_attach = setup_on_attach(true, nil, nil)
+	-- })
 	lspconfig.cssls.setup({
 		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
-	lspconfig.tsserver.setup({
-		capabilities = capabilities_with_snippet,
-		on_attach = setup_on_attach(false, nil, nil)
-	})
-	lspconfig.eslint.setup({
-		capabilities = capabilities_with_snippet,
-		on_attach = setup_on_attach(true, "EslintFixAll", nil)
-	})
-
-	lspconfig.jsonls.setup({
-		capabilities = capabilities_with_snippet,
-		on_attach = setup_on_attach(true, nil, nil)
-	})
-
+	-- lspconfig.tsserver.setup({
+	-- 	capabilities = capabilities_with_snippet,
+	-- 	on_attach = setup_on_attach(false, nil, nil)
+	-- })
+	-- lspconfig.eslint.setup({
+	-- 	capabilities = capabilities_with_snippet,
+	-- 	on_attach = setup_on_attach(true, "EslintFixAll", nil)
+	-- })
+	--
+	-- lspconfig.jsonls.setup({
+	-- 	capabilities = capabilities_with_snippet,
+	-- 	on_attach = setup_on_attach(true, nil, nil)
+	-- })
+	--
 	setup_lsp_keymaps(lsp_autocmd_group)
 end
