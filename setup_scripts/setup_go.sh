@@ -10,10 +10,7 @@ if [[ "$setup_go" != "y" ]]; then
 	exit 0
 fi
 
-if ! command -v go &> /dev/null; then
-	echo 'go is not installed'
-	exit 1
-fi
+sudo pacman -S go
 
 echo "Setting up golang language server and debugger..."
 go install golang.org/x/tools/gopls@latest
