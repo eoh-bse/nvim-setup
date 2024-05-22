@@ -11,6 +11,6 @@ if [[ "$setup_bash" != "y" ]]; then
 fi
 
 echo "Setting up bash language server..."
-sudo npm i -g bash-language-server
+sudo pacman -S bash-language-server
 
 echo "Successfully set up bash for Neovim"

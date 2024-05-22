@@ -7,6 +7,7 @@
 * go, gopls, dlv, staticcheck
 * bash-language-server
 * lua-language-server
+* pyright
 
 ### Version Control
 * git

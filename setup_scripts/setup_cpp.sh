@@ -2,7 +2,7 @@
 
 set -e
 
-echo "Do you want to set up C++? (y for yes)"
+echo "Do you want to set up C/C++? (y for yes)"
 read setup_cpp
 
 if [[ "$setup_cpp" != "y" ]]; then
@@ -11,6 +11,6 @@ if [[ "$setup_cpp" != "y" ]]; then
 fi
 
 echo "Installing C/C++ compilers and CMake..."
-sudo dnf install clang clang-devel clang-tools-extra cmake lldb
+sudo pacman -S clang cmake
 
-echo "Successfully set up C++ for Neovim"
+echo "Successfully set up C/C++ for Neovim"
