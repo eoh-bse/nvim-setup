@@ -106,7 +106,7 @@ local plugins = {
 	},
 	{
 		"leoluz/nvim-dap-go",
-		config = true,
+		opts = true,
 		ft = { "go", "gomod", "gowork", "gosum" }
 	},
 	{
@@ -116,11 +116,6 @@ local plugins = {
 	{
 		"numToStr/Comment.nvim",
 		config = true,
-		event = "VeryLazy"
-	},
-	{
-		"sindrets/diffview.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
 		event = "VeryLazy"
 	},
 	{
