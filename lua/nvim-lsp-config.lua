@@ -130,7 +130,6 @@ return function()
 				analyses = {
 					unusedparams = true,
 					shadow = true,
-					fieldalignment = true,
 					nilness = true,
 					unusedwrite = true,
 					useany = true,
@@ -157,6 +156,7 @@ return function()
 			"--completion-style=detailed",
 			"--header-insertion=iwyu"
 		},
+		filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 		init_options = {
 			usePlaceholders = true,
 			completeUnimported = true
@@ -197,6 +197,6 @@ return function()
 	-- 	capabilities = capabilities_with_snippet,
 	-- 	on_attach = setup_on_attach(true, nil, nil)
 	-- })
-	--
+
 	setup_lsp_keymaps(lsp_autocmd_group)
 end
