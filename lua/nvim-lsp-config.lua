@@ -49,8 +49,6 @@ return function()
 
 	local opts = { noremap = true, silent = true }
 	vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 	vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -62,10 +60,7 @@ return function()
 		require("cmp_nvim_lsp").default_capabilities(capabilities)
 	capabilities_without_snippet.textDocument.completion.completionItem.snippetSupport = false
 
-	-- Replace <YOUR_LSP_SERVER> with each lsp server you"ve enabled.
-	local lspconfig = require("lspconfig")
-
-	lspconfig.lua_ls.setup({
+	vim.lsp.config("lua_ls", {
 		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil),
 		settings = {
@@ -89,36 +84,33 @@ return function()
 			}
 		}
 	})
+	vim.lsp.enable("lua_ls")
 
-	lspconfig.pyright.setup({
+	vim.lsp.config("pyright", {
 		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
+	vim.lsp.enable("pyright")
 
-	lspconfig.bashls.setup({
+	vim.lsp.config("bashls", {
 		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
+	vim.lsp.enable("bashls")
 
 	local function go_organize_imports(wait_ms)
-		local params = vim.lsp.util.make_range_params()
+		local params = vim.lsp.util.make_range_params(0, "utf-8")
 		params.context = { only = { "source.organizeImports" } }
-		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-		for _, res in pairs(result or {}) do
-			for _, r in pairs(res.result or {}) do
-				if r.edit then
-					vim.lsp.util.apply_workspace_edit(r.edit, "utf-8")
-				else
-					vim.lsp.buf.execute_command(r.command)
-				end
-			end
-		end
+		vim.lsp.buf_request_sync(0, "workspace/executeCommand", {
+			command = "gopls.organizeImports",
+			arguments = { vim.api.nvim_buf_get_name(0) },
+		}, wait_ms)
 	end
 
-	lspconfig.gopls.setup({
+	vim.lsp.config("gopls", {
 		cmd = { "gopls" },
 		filetypes = { "go", "gomod", "gowork", "gotmpl" },
-		root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+		root_markers = { "go.work", "go.mod", ".git" },
 		settings = {
 			gopls = {
 				codelenses = {
@@ -144,8 +136,9 @@ return function()
 			debounce_text_changes = 150
 		}
 	})
+	vim.lsp.enable("gopls")
 
-	lspconfig.clangd.setup({
+	vim.lsp.config("clangd", {
 		cmd = {
 			"clangd",
 			"--background-index",
@@ -164,30 +157,27 @@ return function()
 		capabilities = capabilities_without_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
+	vim.lsp.enable("clangd")
 
 	-- lspconfig.arduino_language_server.setup({
 	-- 	capabilities = capabilities_with_snippet,
 	-- 	on_attach = setup_on_attach(false, nil, nil)
 	-- })
-	--
-	-- -- Set up nvim-jdtls for full java support
-	-- lspconfig.jdtls.setup({
-	-- 	capabilities = capabilities_without_snippet,
-	-- 	on_attach = setup_on_attach(true, nil, nil)
-	-- })
-	--
 	-- lspconfig.html.setup({
 	-- 	capabilities = capabilities_with_snippet,
 	-- 	on_attach = setup_on_attach(true, nil, nil)
 	-- })
-	lspconfig.cssls.setup({
+	vim.lsp.config("cssls", {
 		capabilities = capabilities_with_snippet,
 		on_attach = setup_on_attach(true, nil, nil)
 	})
-	-- lspconfig.tsserver.setup({
-	-- 	capabilities = capabilities_with_snippet,
-	-- 	on_attach = setup_on_attach(false, nil, nil)
-	-- })
+	vim.lsp.enable("cssls")
+
+	vim.lsp.config("ts_ls", {
+		capabilities = capabilities_with_snippet,
+		on_attach = setup_on_attach(true, nil, nil)
+	})
+	vim.lsp.enable("ts_ls")
 	-- lspconfig.eslint.setup({
 	-- 	capabilities = capabilities_with_snippet,
 	-- 	on_attach = setup_on_attach(true, "EslintFixAll", nil)
