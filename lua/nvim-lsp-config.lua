@@ -117,6 +117,7 @@ return function()
 					unusedwrite = true,
 					useany = true,
 					unusedvariable = true,
+					ST1003 = false,
 				},
 				staticcheck = true,
 			}
@@ -131,7 +132,7 @@ return function()
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*.go",
 		callback = function()
-			local params = vim.lsp.util.make_range_params()
+			local params = vim.lsp.util.make_range_params(0, "utf-8")
 			params.context = { only = { "source.organizeImports" } }
 			-- buf_request_sync defaults to a 1000ms timeout. Depending on your
 			-- machine and codebase, you may want longer. Add an additional
